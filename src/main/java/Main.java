@@ -25,6 +25,10 @@ public class Main {
 
 		System.out.println("");
 
+		// chess.sauvegarder();
+
+		chess.restaurer();
+
 		chess.afficher();
 
 		System.out.println("\n" + chess.getPiece(new Position(4, 3)));

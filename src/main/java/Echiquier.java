@@ -1,6 +1,16 @@
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Echiquier {
+public class Echiquier implements Serializable {
 
 	private ArrayList<Piece> pieces = new ArrayList();;
 
@@ -57,6 +67,40 @@ public class Echiquier {
 			}
 			System.out.println(" \n------------------------------------------------------------");
 		}
+	}
+
+	public void sauvegarder() {
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(
+					new BufferedOutputStream(new FileOutputStream(new File("echiquier.txt"))));
+			oos.writeObject(pieces);
+
+			oos.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void restaurer() {
+		try {
+			ObjectInputStream ois = new ObjectInputStream(
+					new BufferedInputStream(new FileInputStream(new File("echiquier.txt"))));
+			this.pieces = (ArrayList<Piece>) ois.readObject();
+
+			ois.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

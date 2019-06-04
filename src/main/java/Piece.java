@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public abstract class Piece {
+public abstract class Piece implements Serializable {
 
 	protected char couleur;
 	protected Position position;
