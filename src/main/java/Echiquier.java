@@ -50,8 +50,8 @@ public class Echiquier implements Serializable {
 	}
 
 	public void afficher() {
-		System.out.println("   |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   | ");
-		System.out.println("------------------------------------------------------------");
+		System.out.println("   |   A   |   B   |   C   |   D   |   E   |   F   |   G   |   H   | ");
+		System.out.println("-------------------------------------------------------------------");
 
 		for (int i = 0; i < 8; i++) {
 			System.out.print(" " + i + " |");
@@ -65,7 +65,7 @@ public class Echiquier implements Serializable {
 				}
 				System.out.print(" |");
 			}
-			System.out.println(" \n------------------------------------------------------------");
+			System.out.println(" \n-------------------------------------------------------------------");
 		}
 	}
 
